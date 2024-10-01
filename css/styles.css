@@ -10,3 +10,39 @@
 a{
     text-decoration: none !important;
 }
+
+header{
+    display: flex; 
+    justify-content: center; 
+    background-color: #e8373e; 
+    height: 100px; 
+    align-items: center;
+}
+
+header a{
+    color: white !important;
+}
+
+.sub-header{
+    display: flex; 
+    background-color: #3a2d19; 
+    padding: 10px; 
+    border-radius: 15px; 
+    margin-left: 5px;
+}
+
+#fecha-actual{
+    color:white; 
+    background-color: #c3d297; 
+    padding: 10px; 
+    margin-bottom: 5px;
+}
+
+.work-status{
+    background-color: #3a2d19; 
+    padding: 25px; 
+    color: white; 
+    width: 250px; 
+    margin: 0 auto; 
+    border-radius: 30px;
+}
