@@ -46,3 +46,32 @@ header a{
     margin: 0 auto; 
     border-radius: 30px;
 }
+
+#miFormulario-container{
+    background-color: #477cf7;
+    min-height: 125px;
+    align-items: center;
+    width: 320px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#miFormulario input{
+    border-radius: 25px;
+    border: 1px solid gray;
+    padding: 5px;
+    width: 215px;
+}
+
+#miFormulario button{
+    border: none;
+    color: white;
+    padding: 5px;
+    background-color: #E8373E;
+    border-radius: 10px;
+}

@@ -17,21 +17,33 @@
             <a href="list.html"><strong>Pendientes</strong></a>
         </div>
     </header>
-    <div>
+    <div id="miFormulario-container">
         <form id="miFormulario">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
+            <div style="margin-bottom: 5px;">
+                <label for="nombre"><strong>Nombre:</strong></label>
+                <br>
+                <input type="text" id="nombre" name="nombre">
+            </div>
           
-            <label for="note">Notas(opcionales):</label>
-            <input type="text" id="note" name="note">
+            <div style="margin-bottom: 5px;">
+                <label for="note"><strong>Notas(opcionales):</strong></label>
+                <br>
+                <input type="text" id="note" name="note">
+            </div>
 
-            <label for="time">Empezando el:</label>
-            <input type="date" name="time" id="time">
+            <div style="margin-bottom: 5px;">
+                <label for="time"><strong>Empezando el:</strong></label>
+                <br>
+                <input type="date" name="time" id="time">
+            </div>
 
-            <label for="time2">Listo para el:</label>
-            <input type="date" name="time2" id="time2">
+            <div>
+                <label for="time2"><strong>Listo para el:</strong></label>
+                <br>
+                <input type="date" name="time2" id="time2">
+            </div>
           
-            <button type="submit">Enviar</button>
+            <button type="submit" style="margin-top: 10px;">Enviar</button>
         </form>
     </div>
     <div style="margin-top: 25px !important;">
@@ -92,7 +104,7 @@
 
                     // Crear un elemento div para cada conjunto de datos
                     const divDato = document.createElement('div');
-                    divDato.textContent = `Nombre: ${datos.nombre}, Note: ${datos.note}`; // Adaptar a tus campos
+                    divDato.textContent = `Nombre: ${datos.nombre}, Nota: ${datos.note}, Empezando el: ${datos.time}, Listo para el: ${datos.time2} `; // Adaptar a tus campos
 
                     // Crear un botón para eliminar el dato
                     const botonEliminar = document.createElement('button');
