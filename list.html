@@ -18,21 +18,101 @@
         </div>
     </header>
     <div>
+        <form id="miFormulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+          
+            <label for="note">Notas(opcionales):</label>
+            <input type="text" id="note" name="note">
+
+            <label for="time">Empezando el:</label>
+            <input type="date" name="time" id="time">
+
+            <label for="time2">Listo para el:</label>
+            <input type="date" name="time2" id="time2">
+          
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div style="margin-top: 25px !important;">
         <center><h5>Lista de Pendientes:</h5></center>
         <hr>
-        <div>
+        <div id="contenedorDatos">
 
-        </div>
-    </div>
-    <div>
-        <center><h5>Realizadas:</h5></center>
-        <hr>
-        <div>
-            
         </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        const formulario = document.getElementById('miFormulario');
+
+        // Función para guardar los datos en el LocalStorage
+        function guardarDatos(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const note = document.getElementById('note').value;
+            const time = document.getElementById('time').value;
+            const time2 = document.getElementById('time2').value;
+
+            const datos = {
+                nombre,
+                note,
+                time,
+                time2
+            };
+
+            // Generar una clave única (puedes usar un timestamp o un UUID)
+            const clave = Date.now();
+
+            // Guardar los datos en el LocalStorage
+            localStorage.setItem(clave, JSON.stringify(datos));
+
+            // Mostrar un mensaje de confirmación (puedes personalizar esto)
+            alert('Datos guardados correctamente');
+            setTimeout(() => {
+                location.reload();
+            }, 500);
+        }
+
+        // Agregar un evento de envío al formulario
+        formulario.addEventListener('submit', guardarDatos);
+
+        // Función para mostrar los datos almacenados en el LocalStorage
+        function mostrarDatos() {
+            // Obtener el contenedor donde se mostrarán los datos
+            const contenedor = document.getElementById('contenedorDatos');
+            contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos elementos
+
+            // Iterar sobre todas las claves del LocalStorage
+            for (let i = 0; i < localStorage.length; i++) {
+                const clave = localStorage.key(i);
+                if (!isNaN(clave)) {
+                    const datos = JSON.parse(localStorage.getItem(clave));
+
+                    // Crear un elemento div para cada conjunto de datos
+                    const divDato = document.createElement('div');
+                    divDato.textContent = `Nombre: ${datos.nombre}, Note: ${datos.note}`; // Adaptar a tus campos
+
+                    // Crear un botón para eliminar el dato
+                    const botonEliminar = document.createElement('button');
+                    botonEliminar.textContent = 'Eliminar';
+                    botonEliminar.addEventListener('click', () => {
+                        localStorage.removeItem(clave);
+                        divDato.remove(); // Eliminar el elemento del DOM
+                    });
+
+                    divDato.appendChild(botonEliminar);
+                    contenedor.appendChild(divDato);
+                } else {
+                    //
+                }
+            }
+        }
+
+        // Llamar a la función para mostrar los datos al cargar la página
+        mostrarDatos();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
