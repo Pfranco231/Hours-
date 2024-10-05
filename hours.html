@@ -56,9 +56,17 @@
                     </form>
                 </div>
                 <div>
-                    <div style="display: flex;">
-                        <h5 style="margin-right: 5px;">Resultado:</h5>
-                        <h5><strong id="resultado-xmes"></strong></h5>
+                    <div>
+                        <div style="display: flex;">
+                            <h5 style="margin-right: 5px;">Resultado:</h5>
+                            <h5><strong id="resultado-xmes"></strong></h5>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex;">
+                            <h5 style="margin-right: 5px;">Sueldo:</h5>
+                            <h5><strong id="resultado-xsueldo"></strong></h5>
+                        </div>
                     </div>
                 </div>
                 
@@ -97,13 +105,18 @@
 
         function obtenervalor3() {
             const nuevoNumero = parseFloat(document.getElementById('hours-days').value);
-            const resul_display = document.getElementById("resultado-xmes")
+            const resul_display = document.getElementById("resultado-xmes");
+            const resul_display_sueldo = document.getElementById("resultado-xsueldo");
             
 
             const multiplicar = nuevoNumero * 5;
             const multiplicar2 = multiplicar * 4;
 
             resul_display.innerText = multiplicar2;
+
+            let multiplicar3 = multiplicar2 * parseFloat(localStorage.getItem("Precio"));
+
+            resul_display_sueldo.innerText = multiplicar3; 
             
         }
 
