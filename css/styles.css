@@ -75,3 +75,37 @@ header a{
     background-color: #E8373E;
     border-radius: 10px;
 }
+
+.pendientes{
+    background-color: #E8373E; 
+    max-width: 390px;
+    margin: 0 auto;
+    color: white !important;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.pendiente-title{
+    background-color: #3a2d19;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.pendiente-div{
+    display: flex;
+    justify-content: center;
+}
+
+.boton-eliminar{
+    border: none;
+    color: white;
+    background-color: #3a2d19;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.pdato{
+    margin-top: 5px;
+    margin-left: 5px;
+}

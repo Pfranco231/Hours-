@@ -103,12 +103,35 @@
                     const datos = JSON.parse(localStorage.getItem(clave));
 
                     // Crear un elemento div para cada conjunto de datos
-                    const divDato = document.createElement('div');
-                    divDato.textContent = `Nombre: ${datos.nombre}, Nota: ${datos.note}, Empezando el: ${datos.time}, Listo para el: ${datos.time2} `; // Adaptar a tus campos
+                    let divDato = document.createElement('div');
+                    let divDato2 = document.createElement('div');
+                    let divDato3 = document.createElement('div');
+                    let h4dato = document.createElement('h4');
+                    let pdato = document.createElement('h5');
+                    let divDato4 = document.createElement('div');
+                    let pdato2 = document.createElement('h6');
+                    let pdato3 = document.createElement('h6');
+                    divDato.appendChild(divDato2);
+                    divDato.appendChild(divDato3);
+                    divDato.classList.add("pendientes");
+                    divDato2.classList.add("pendiente-title");
+                    divDato4.classList.add("pendiente-div")
+                    pdato.classList.add("pdato");
+                    divDato2.appendChild(h4dato);
+                    divDato3.appendChild(pdato);
+                    divDato3.appendChild(divDato4);
+                    h4dato.innerHTML = `<strong>${datos.nombre}</strong>`
+                    pdato.textContent = `Desp: ${datos.note} `;
+                    divDato4.appendChild(pdato2);
+                    divDato4.appendChild(pdato3);
+
+                    pdato2.innerHTML = `<strong>Inicio: ${datos.time} --</strong>`
+                    pdato3.innerHTML = `<strong>-- Fin: ${datos.time2}</strong>`
 
                     // Crear un botón para eliminar el dato
-                    const botonEliminar = document.createElement('button');
-                    botonEliminar.textContent = 'Eliminar';
+                    let botonEliminar = document.createElement('button');
+                    botonEliminar.classList.add("boton-eliminar");
+                    botonEliminar.textContent = 'Listo';
                     botonEliminar.addEventListener('click', () => {
                         localStorage.removeItem(clave);
                         divDato.remove(); // Eliminar el elemento del DOM
